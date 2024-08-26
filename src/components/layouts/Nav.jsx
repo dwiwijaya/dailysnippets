@@ -25,14 +25,14 @@ const Nav = () => {
                         href={item.href}
                         className={`group text-text ${pathname == item.href ? '!text-primary' : ''}`} // Tambahkan kelas aktif jika path sesuai
                     >
-                        <i className={`${item.icon} group-active:scale-90 transition-all duration-200 ease-in-out`}></i>
+                        <i className={`${item.icon} group-active:scale-90 transition-all duration-300 ease-in-out`}></i>
                         <span className={` hidden sm:inline sm:ml-1 ${pathname == item.href ? '!inline ml-1' : ''}`}>{item.label}</span>
                     </Link>
                 ))}
             </nav>
             <div className="flex gap-2">
-                <button onClick={triggerRefetch} className='bg-background px-3 py-2 rounded-lg border border-stroke'>
-                    <i className="fad fa-sync"></i>
+                <button onClick={triggerRefetch} className='group bg-background px-3 py-2 rounded-lg border border-stroke'>
+                    <i className=" group-active:scale-90 transition-all duration-300 ease-in-out fad fa-sync"></i>
                 </button>
                 <ThemeToggle/>
             </div>
