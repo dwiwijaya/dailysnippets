@@ -2,10 +2,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import ThemeToggle from './ThemeToggle'
+import { useRefetch } from '@/contexts/RefetchContext'
 
 const Nav = () => {
     const pathname = usePathname()
-    
+    const { triggerRefetch } = useRefetch();
+
     const navItems = [
         { href: '/', icon: 'fad fa-lightbulb', label: 'Funfact' },
         { href: '/trivia', icon: 'fad fa-question-circle', label: 'Trivia' },
@@ -29,7 +31,7 @@ const Nav = () => {
                 ))}
             </nav>
             <div className="flex gap-2">
-                <button className='bg-background px-3 py-2 rounded-lg border border-stroke'>
+                <button onClick={triggerRefetch} className='bg-background px-3 py-2 rounded-lg border border-stroke'>
                     <i className="fad fa-sync"></i>
                 </button>
                 <ThemeToggle/>
