@@ -4,7 +4,7 @@ import React from 'react'
 import ThemeToggle from './ThemeToggle'
 import { useRefetch } from '@/contexts/RefetchContext'
 
-const Nav = () => {
+const Nav = ({ className }) => {
     const pathname = usePathname()
     const { triggerRefetch } = useRefetch();
 
@@ -17,7 +17,7 @@ const Nav = () => {
     ];
     
     return (
-        <div className='flex items-center justify-between'>
+        <div className={`flex items-center justify-between ${className}`}>
             <nav className="flex bg-background px-3 py-2 rounded-lg border border-stroke gap-5">
                 {navItems.map((item) => (
                     <Link
