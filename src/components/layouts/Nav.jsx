@@ -26,7 +26,7 @@ const Nav = () => {
                         className={`group text-text ${pathname == item.href ? '!text-primary' : ''}`} // Tambahkan kelas aktif jika path sesuai
                     >
                         <i className={`${item.icon} group-active:scale-90 transition-all duration-200 ease-in-out`}></i>
-                        <span className={` hidden text-sm sm:inline sm:ml-1 ${pathname == item.href ? '!inline ml-1' : ''}`}>{item.label}</span>
+                        <span className={` hidden sm:inline sm:ml-1 ${pathname == item.href ? '!inline ml-1' : ''}`}>{item.label}</span>
                     </Link>
                 ))}
             </nav>
