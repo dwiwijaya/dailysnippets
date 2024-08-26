@@ -4,15 +4,15 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head >
-      <link
+        <link
           rel='icon'
           type='image/png'
           href='/star.png'
         />
       </Head>
-      <body>
-        <Main />
-        <NextScript />
+      <body className="bg-slate-100">
+          <Main />
+          <NextScript />
       </body>
     </Html>
   );
