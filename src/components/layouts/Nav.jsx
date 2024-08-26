@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
+import ThemeToggle from './ThemeToggle'
 
 const Nav = () => {
     const pathname = usePathname()
@@ -15,7 +16,7 @@ const Nav = () => {
     
     return (
         <div className='flex items-center justify-between'>
-            <nav className="flex bg-background px-3 py-2 rounded-lg border stroke gap-5">
+            <nav className="flex bg-background px-3 py-2 rounded-lg border border-stroke gap-5">
                 {navItems.map((item) => (
                     <Link
                         key={item.href}
@@ -28,12 +29,10 @@ const Nav = () => {
                 ))}
             </nav>
             <div className="flex gap-2">
-                <button className='bg-background px-3 py-2 rounded-lg border stroke'>
+                <button className='bg-background px-3 py-2 rounded-lg border border-stroke'>
                     <i className="fad fa-sync"></i>
                 </button>
-                <button className='bg-background px-3 py-2 rounded-lg border stroke'>
-                    <i className="fad fa-sun-bright"></i>
-                </button>
+                <ThemeToggle/>
             </div>
         </div>
     )

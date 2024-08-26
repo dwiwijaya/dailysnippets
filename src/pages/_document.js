@@ -10,7 +10,7 @@ export default function Document() {
           href='/star.png'
         />
       </Head>
-      <body className="bg-slate-100">
+      <body className="">
           <Main />
           <NextScript />
       </body>
