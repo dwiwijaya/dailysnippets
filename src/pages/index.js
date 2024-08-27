@@ -10,15 +10,13 @@ const fetchFacts = async () => {
   return response;
 };
 
-export default function Home({ fact }) {
+export default function Home() {
   const { refetchFlag } = useRefetch();
-  console.log(fact);
-  console.log(refetchFlag);
   const { data, isLoading, isError } = useQuery({
     queryKey: ['facts', refetchFlag],
     queryFn: fetchFacts,
-    initialData: fact,
     refetchOnWindowFocus: false,
+    staleTime: 60 * 1000,
   });
 
   return (
@@ -41,11 +39,4 @@ export default function Home({ fact }) {
   );
 }
 
-export async function getServerSideProps() {
-  const response = await fetchNinjaAPI({ endpoint: 'facts' });
-  return {
-    props: {
-      fact: response[0].fact,
-    },
-  };
-}
+

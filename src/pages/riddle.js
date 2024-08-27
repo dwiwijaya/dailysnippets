@@ -19,6 +19,7 @@ export default function RiddlePage() {
     queryKey: ['riddles', refetchFlag],
     queryFn: fetchRiddles,
     refetchOnWindowFocus: false,
+    staleTime: 60 * 1000,
   });
 
   const toggleAnswer = () => {
@@ -61,14 +62,3 @@ export default function RiddlePage() {
   );
 }
 
-export async function getServerSideProps() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery(['riddles'], fetchRiddles);
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-}

@@ -17,6 +17,7 @@ export default function QuotePage() {
     queryKey: ['quotes', refetchFlag],
     queryFn: fetchQuotes,
     refetchOnWindowFocus: false,
+    staleTime: 60 * 1000,
   });
 
   return (
@@ -37,16 +38,4 @@ export default function QuotePage() {
     </>
 
   );
-}
-
-export async function getServerSideProps() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery(['quotes'], fetchQuotes);
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
 }

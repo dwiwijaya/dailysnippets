@@ -8,7 +8,6 @@ export const RefetchProvider = ({ children }) => {
   const triggerRefetch = useCallback(() => {
     setRefetchFlag((prev) => prev + 1);
   }, []);
-console.log(refetchFlag);
   return (
     <RefetchContext.Provider value={{ refetchFlag, triggerRefetch }}>
       {children}

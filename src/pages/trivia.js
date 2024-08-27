@@ -19,6 +19,7 @@ export default function TriviaPage() {
     queryKey: ['trivia', refetchFlag],
     queryFn: fetchTrivia,
     refetchOnWindowFocus: false,
+    staleTime: 60 * 1000,
   });
 
   const toggleAnswer = () => {
@@ -60,16 +61,4 @@ export default function TriviaPage() {
 
     </>
   );
-}
-
-export async function getServerSideProps() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery(['trivia'], fetchTrivia);
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
 }

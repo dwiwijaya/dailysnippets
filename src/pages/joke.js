@@ -17,6 +17,7 @@ export default function JokePage() {
     queryKey: ['jokes', refetchFlag],
     queryFn: fetchJokes,
     refetchOnWindowFocus: false, 
+    staleTime: 60 * 1000,
   });
 
   return (
@@ -36,16 +37,4 @@ export default function JokePage() {
       </>
 
   );
-}
-
-export async function getServerSideProps() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery(['jokes'], fetchJokes);
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
 }
