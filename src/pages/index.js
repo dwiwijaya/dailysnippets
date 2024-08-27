@@ -10,43 +10,42 @@ const fetchFacts = async () => {
   return response;
 };
 
-export default function Home() {
+export default function Home({ fact }) {
   const { refetchFlag } = useRefetch();
-
+  console.log(fact);
+  console.log(refetchFlag);
   const { data, isLoading, isError } = useQuery({
     queryKey: ['facts', refetchFlag],
     queryFn: fetchFacts,
-    refetchOnWindowFocus: false, 
+    initialData: fact,
+    refetchOnWindowFocus: false,
   });
 
   return (
     <>
-            <NextSeo title="Daily Snippets" />
+      <NextSeo title="Daily Snippets" />
 
-    <div className="rounded-lg text-center ">
-      <h1 className="text-2xl font-bold mb-4 ">Today’s Fun Fact</h1>
-      <StatusHandler isLoading={isLoading} isError={isError} />
-      {!isLoading && !isError && data && (
-        <>
-          <p className="text-lg font-medium">
-            {data[0].fact}
-          </p>
-        </>
-      )}
-    </div>
-        </>
+      <div className="rounded-lg text-center ">
+        <h1 className="text-2xl font-bold mb-4 ">Today’s Fun Fact</h1>
+        <StatusHandler isLoading={isLoading} isError={isError} />
+        {!isLoading && !isError && data && (
+          <>
+            <p className="text-lg font-medium">
+              {data[0].fact}
+            </p>
+          </>
+        )}
+      </div>
+    </>
 
   );
 }
 
 export async function getServerSideProps() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery(['facts'], fetchFacts);
-
+  const response = await fetchNinjaAPI({ endpoint: 'facts' });
   return {
     props: {
-      dehydratedState: dehydrate(queryClient),
+      fact: response[0].fact,
     },
   };
 }
