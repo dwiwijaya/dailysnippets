@@ -3,6 +3,7 @@ import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { useRefetch } from '@/contexts/RefetchContext';
 import { fetchNinjaAPI } from '@/libs/api';
 import StatusHandler from '@/components/StatusHandler';
+import { NextSeo } from 'next-seo';
 
 const fetchFacts = async () => {
   const response = await fetchNinjaAPI({ endpoint: 'facts' });
@@ -19,6 +20,9 @@ export default function Home() {
   });
 
   return (
+    <>
+            <NextSeo title="Daily Snippets" />
+
     <div className="rounded-lg text-center ">
       <h1 className="text-2xl font-bold mb-4 ">Today’s Fun Fact</h1>
       <StatusHandler isLoading={isLoading} isError={isError} />
@@ -30,6 +34,7 @@ export default function Home() {
         </>
       )}
     </div>
+        </>
 
   );
 }
