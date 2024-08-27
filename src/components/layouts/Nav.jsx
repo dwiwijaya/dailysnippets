@@ -10,10 +10,10 @@ const Nav = ({ className }) => {
 
     const navItems = [
         { href: '/', icon: 'fad fa-lightbulb', label: 'Funfact' },
-        { href: '/trivia', icon: 'fad fa-question-circle', label: 'Trivia' },
         { href: '/quotes', icon: 'fad fa-quote-right', label: 'Quotes' },
-        { href: '/riddles', icon: 'fad fa-puzzle-piece', label: 'Riddles' },
         { href: '/jokes', icon: 'fad fa-laugh-squint', label: 'Jokes' },
+        { href: '/trivia', icon: 'fad fa-question-circle', label: 'Trivia' },
+        { href: '/riddles', icon: 'fad fa-puzzle-piece', label: 'Riddles' },
     ];
     
     return (
