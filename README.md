@@ -27,7 +27,10 @@ Daily Snippets is a web application that serves a variety of daily content, incl
    cd daily-snippets
    npm install
    ```
-
+4. Create a .env.local file in the root of the project and add the following variable:
+   ```env
+   NEXT_PUBLIC_NINJA_API_KEY=your-api-key
+   ```
 3. Run the application:
    ```bash
    npm run dev
