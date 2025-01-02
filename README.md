@@ -1,40 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Daily Snippets
 
-## Getting Started
+Daily Snippets is a web application that serves a variety of daily content, including quotes, jokes, trivia, and more. It uses the [API Ninjas](https://api.api-ninjas.com) API to fetch content dynamically.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Displays daily snippets such as quotes, facts, jokes, trivias and riddles.
+- Fetches content using API from API Ninjas.
+- Built with Next.js for fast performance and dynamic rendering.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- **Next.js**: A React framework for building static and dynamic websites.
+- **Axios**: For making HTTP requests.
+- **React Query**: For managing server state and fetching data.
+- **Next Themes**: To support dark and light modes.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Installation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dwiwijaya/daily-snippets.git
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Install dependencies:
+   ```bash
+   cd daily-snippets
+   npm install
+   ```
 
-## Learn More
+3. Run the application:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Visit the app at `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- The application will display a new snippet each day, fetched from the API.
+- It includes quotes, jokes, trivia, and other fun facts.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Commit your changes (`git commit -am 'Add feature'`).
+4. Push to your branch (`git push origin feature-name`).
+5. Open a pull request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
